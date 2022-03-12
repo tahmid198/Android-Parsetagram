@@ -26,7 +26,37 @@ class LoginActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.et_password).text.toString()
             loginUser(username, password)
         }
+        // get input from user and prepare signup
+        findViewById<Button>(R.id.signupButton).setOnClickListener {
+            val username = findViewById<EditText>(R.id.et_username).text.toString()
+            val password = findViewById<EditText>(R.id.et_password).text.toString()
+            signUpUser(username, password)
+        }
     }
+    private fun signUpUser(username: String, password: String)
+    {
+        // Create the ParseUser
+        val user = ParseUser()
+
+        // Set fields for the user to be created
+        user.setUsername(username)
+        user.setPassword(password)
+
+        user.signUpInBackground { e ->
+            if (e == null) {
+                // Hooray! Let them use the app now.
+                Log.i(TAG, "Successfully logged in user")
+                goToMainActivity()
+            } else {
+                // Sign up didn't succeed. Look at the ParseException
+                // to figure out what went wrong
+                e.printStackTrace() // log an exception
+                Toast.makeText(this, "Error logging in", Toast.LENGTH_SHORT)
+            }
+        }
+    }
+
+
 
     // Make network call to login user; make in background thread instead of main thread so user can still interact with app
     private fun loginUser(username: String, password: String)
