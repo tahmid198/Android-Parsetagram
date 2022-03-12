@@ -1,18 +1,19 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Parsetagram*
 
-**Name of your app** is a photo sharing app similar to Instagram but using Parse as its backend.
+**Parsetagram** is a photo sharing app similar to Instagram but using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication.
-- [ ] User can log in and log out of his or her account.
-- [ ] The current signed in user is persisted across app restarts.
-- [ ] User can take a photo, add a caption, and post it to "Instagram".
+- [x] User can sign up to create a new account using Parse authentication.
+- [x] User can log in and log out of his or her account.
+- [x] The current signed in user is persisted across app restarts.
+- [x] User can take a photo, add a caption, and post it to "Instagram".
 
+<!---
 The following **optional** features are implemented:
 
 - [ ] User sees app icon in home screen and styled bottom navigation view
@@ -23,17 +24,23 @@ The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
 
+-->
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![image walktrough](./image/v1.gif)
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [Recordit](https://recordit.co/).
+
 
 ## Notes
 
 Back4App -> Docs -> Guides -> Android -> Install Parse SDK
+
+https://guides.codepath.org/android/Configuring-a-Parse-Server#setting-a-new-parse-server
+https://guides.codepath.org/android/Building-Data-driven-Apps-with-Parse#user-logout
+https://guides.codepath.org/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
 
 ## Open-source libraries used
 
@@ -42,7 +49,7 @@ Back4App -> Docs -> Guides -> Android -> Install Parse SDK
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Tahmid Zaman]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
