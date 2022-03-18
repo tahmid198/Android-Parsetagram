@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 import java.io.File
 
@@ -48,16 +50,44 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Image was not picked", Toast.LENGTH_SHORT)
             }
         }
+        findViewById<Button>(R.id.btnLogout).setOnClickListener {
+            ParseUser.logOut()
+            val currentUser = ParseUser.getCurrentUser() // this will now be null
+            goToLoginActivity()
+        }
 
         findViewById<Button>(R.id.btnTakePicture).setOnClickListener {
             // Launch camera to take a picture
             onLaunchCamera()
         }
 
-        findViewById<Button>(R.id.btnLogout).setOnClickListener {
-            ParseUser.logOut()
-            val currentUser = ParseUser.getCurrentUser() // this will now be null
-            goToLoginActivity()
+        // setOnItemSelectedListener will let you know which specific item was clicked
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+
+            // Arrow symbol passes in variable or else we can use generic variable 'it' which is passed by default (for example it.itemId)
+                item ->
+            when (item.itemId) {
+
+                R.id.action_home -> {
+                    // TODO Navigate to home screen
+                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+
+                }
+                R.id.action_compose -> {
+                    // TODO navigate to compose screen
+                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+
+                }
+                R.id.action_profile -> {
+                    // TODO navigate to profile screen
+                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+
+
+                }
+            }
+
+            // Return true to say that we've handled user intreaction on the item
+            true
         }
 
         // queryPosts()
