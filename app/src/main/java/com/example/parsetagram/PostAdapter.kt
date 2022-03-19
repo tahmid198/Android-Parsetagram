@@ -25,6 +25,7 @@ class PostAdapter(val context: Context, val posts: List<Post>): RecyclerView.Ada
         return posts.size
     }
 
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvUsername : TextView
         val ivImage : ImageView

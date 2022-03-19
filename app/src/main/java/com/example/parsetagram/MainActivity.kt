@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.parsetagram.fragments.ComposeFragment
 import com.example.parsetagram.fragments.FeedFragment
+import com.example.parsetagram.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.parse.*
 
@@ -36,19 +37,18 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) { // when item is selected
 
                 R.id.action_home -> {
-                    // TODO Navigate to home screen / feed fragment
                     fragmentToShow = FeedFragment()
-                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
 
                 }
                 R.id.action_compose -> {
                     fragmentToShow = ComposeFragment()
-                    Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "Compose", Toast.LENGTH_SHORT).show()
 
                 }
                 R.id.action_profile -> {
-                    // TODO navigate to profile screen
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+                    fragmentToShow = ProfileFragment()
+                   // Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
                 }
             }
             if(fragmentToShow != null) {
