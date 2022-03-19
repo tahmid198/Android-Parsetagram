@@ -60,53 +60,22 @@ class MainActivity : AppCompatActivity() {
         // Set default selection
         findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = R.id.action_home
 
-//        findViewById<Button>(R.id.btnLogout).setOnClickListener {
-//            ParseUser.logOut()
-//            val currentUser = ParseUser.getCurrentUser() // this will now be null
-//            goToLoginActivity()
-//        }
+        findViewById<Button>(R.id.btnLogout).setOnClickListener {
+            ParseUser.logOut()
+            val currentUser = ParseUser.getCurrentUser() // this will now be null
+            goToLoginActivity()
+        }
 
     }
-
-
-    // queryPosts()
-
-    // Query for all post in our server
-    fun queryPosts() {
-
-        // Specify which class to query
-        val query: ParseQuery<Post> = ParseQuery.getQuery(Post::class.java)
-
-        // Find all the Post objects
-        query.include(Post.KEY_USER)
-        query.findInBackground(object : FindCallback<Post> {
-            override fun done(posts: MutableList<Post>?, e: ParseException?) {
-                if (e != null) {
-                    // Something has gone wrong
-                    Log.e(MainActivity.TAG, "Error fetching posts")
-                } else {
-                    if(posts != null) {
-                        for(post in posts) {
-                            Log.i(
-                                MainActivity.TAG, "Post: " + post.getDescription() + ", username: " +
-                                        post.getUser()?.username) // print out description
-                        }
-                    }
-                }
-            }
-
-        })
-    }
-
 
     // After login send to main activity
-//    private fun goToLoginActivity() {
-//        // navigates to main activity
-//        val intent = Intent(this@MainActivity, LoginActivity::class.java)
-//        startActivity(intent)
-//        // closes login activity
-//        finish()
-//    }
+    private fun goToLoginActivity() {
+        // navigates to main activity
+        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(intent)
+        // closes login activity
+        finish()
+    }
 
     companion object {
         const val  TAG = "MainActivity"
